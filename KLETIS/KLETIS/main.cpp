@@ -501,22 +501,44 @@ int CheckFile(std::filesystem::directory_entry AdrFile, int& ByteOffset, char*& 
 	return 0;
 }
 
-/*int Atoi(std::string StrNum, int& NumNum)
+int Atoi(std::string StrNum, int& NumNum)
 {
 	size_t Capcty = StrNum.size();
 	int ChIErr = 0;
 	char ChCErr = 0;
 	double ChDErr = 0.0;
-	if (Capcty <= 0)
+	int Sign = 1;
+	if ((Capcty <= 0) || ((sizeof(int) * 8 + 2) < Capcty))
 	{
 		std::cerr << "Error 1\n";
 		return 1;
 	}
 	NumNum = 0;
-	if (sizeof(int) * 8 < Capcty)
+	if (Capcty > 1)
 	{
-		std::cerr << "Error 3\n";
-		return 3;
+		try
+		{
+			ChCErr = StrNum.at(0);
+		}
+		catch (...)
+		{
+			std::cerr << "Error 3\n";
+			return 3;
+		}
+		if ((ChCErr == '-') || (ChCErr == '+'))
+		{
+			if (ChCErr == '-') Sign = -1;
+			try
+			{
+				StrNum.erase(0, 1);
+			}
+			catch (...)
+			{
+				std::cerr << "Error 4\n";
+				return 4;
+			}
+			Capcty = Capcty - 1;
+		}
 	}
 	if (Capcty > 2)
 	{
@@ -526,43 +548,25 @@ int CheckFile(std::filesystem::directory_entry AdrFile, int& ByteOffset, char*& 
 		}
 		catch (...)
 		{
-			std::cerr << "Error 4\n";
-			return 4;
+			std::cerr << "Error 5\n";
+			return 5;
 		}
 		if (ChCErr == '0')
 		{
 			ChIErr = BinryToDec(StrNum, NumNum, Capcty);
 			if (ChIErr > 0)
 			{
-				std::cerr << "Error 5\n";
-				return 5;
-			}
-		}
-		else if (((ChCErr == '-') || (ChCErr == '+')) && (ChCErr + 1 == '0'))
-		{
-			try
-			{
-				StrNum.erase(0);
-			}
-			catch (...)
-			{
 				std::cerr << "Error 6\n";
 				return 6;
 			}
-			--Capcty;
-			if (Capcty > 2)
-			{
-				ChIErr = BinryToDec(StrNum, NumNum, Capcty);
-				if (ChIErr > 0)
-				{
-					std::cerr << "Error 7\n";
-					return 7;
-				}
-				if (ChCErr == '-') NumNum = NumNum * (-1);
-			}
+		}
+		else if (!((ChCErr >= '1') && (ChCErr <= '9')))
+		{
+			std::cerr << "Error 1\n";
+			return 1;
 		}
 	}
-	else
+	else if (Capcty >= 1)
 	{
 		for (size_t i = Capcty; i > 0; --i)
 		{
@@ -572,42 +576,29 @@ int CheckFile(std::filesystem::directory_entry AdrFile, int& ByteOffset, char*& 
 			}
 			catch (...)
 			{
-				std::cerr << "Error 8\n";
-				return 8;
+				std::cerr << "Error 7\n";
+				return 7;
 			}
 			if (((ChCErr >= '0') && (ChCErr <= '9')))
 			{
 				ChDErr = pow(10, (Capcty - i));
 				if ((ChDErr == HUGE_VAL) || (ChDErr == -HUGE_VAL))
 				{
-					std::cerr << "Error 9\n";
-					return 9;
+					std::cerr << "Error 8\n";
+					return 8;
 				}
 				NumNum = NumNum + (ChCErr - 48) * ChDErr;
 			}
 			else
 			{
-				try
-				{
-					ChCErr = StrNum.at(0);
-				}
-				catch (...)
-				{
-					std::cerr << "Error 10\n";
-					return 10;
-				}
-				if ((ChCErr == '-') && (i - 1 == 0)) NumNum = NumNum * (-1);
-				else if ((ChCErr == '+') && (i - 1 == 0));
-				else
-				{
-					std::cerr << "Error 1\n";
-					return 1;
-				}
+				std::cerr << "Error 1\n";
+				return 1;
 			}
 		}
 	}
+	NumNum = Sign * NumNum;
 	return 0;
-}*/
+}
 
 int BinryToDec(std::string& StrNum, int& NumNum, const size_t Capcty)
 {
@@ -645,6 +636,11 @@ int BinryToDec(std::string& StrNum, int& NumNum, const size_t Capcty)
 		}
 		if (ChCErr == 'x')
 		{
+			if (sizeof(int) * 2 + 2 < Capcty)
+			{
+				std::cerr << "Error 1\n";
+				return 1;
+			}
 			for (size_t i = Capcty; i > 2; --i)
 			{
 				try
@@ -707,6 +703,11 @@ int BinryToDec(std::string& StrNum, int& NumNum, const size_t Capcty)
 		}
 		else
 		{
+			if (sizeof(int) * 3 < Capcty)
+			{
+				std::cerr << "Error 1\n";
+				return 1;
+			}
 			for (size_t i = Capcty; i > 1; --i)
 			{
 				try
@@ -718,7 +719,7 @@ int BinryToDec(std::string& StrNum, int& NumNum, const size_t Capcty)
 					std::cerr << "Error 10\n";
 					return 10;
 				}
-				if ((ChCErr >= '0') && (ChCErr <= '9'))
+				if ((ChCErr >= '0') && (ChCErr <= '7'))
 				{
 					ChDErr = pow(8, (Capcty - i));
 					if ((ChDErr == HUGE_VAL) || (ChDErr == -HUGE_VAL))

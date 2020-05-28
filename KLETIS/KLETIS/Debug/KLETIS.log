@@ -1,9 +1,9 @@
 ﻿  main.cpp
 C:\Users\atosy\source\repos\KLETIS\KLETIS\main.cpp(138,22): warning C4244: =: преобразование "std::streamoff" в "size_t", возможна потеря данных
-C:\Users\atosy\source\repos\KLETIS\KLETIS\main.cpp(586,21): warning C4244: =: преобразование "double" в "int", возможна потеря данных
-C:\Users\atosy\source\repos\KLETIS\KLETIS\main.cpp(667,62): warning C4244: =: преобразование "double" в "int", возможна потеря данных
-C:\Users\atosy\source\repos\KLETIS\KLETIS\main.cpp(668,67): warning C4244: =: преобразование "double" в "int", возможна потеря данных
-C:\Users\atosy\source\repos\KLETIS\KLETIS\main.cpp(669,67): warning C4244: =: преобразование "double" в "int", возможна потеря данных
-C:\Users\atosy\source\repos\KLETIS\KLETIS\main.cpp(699,22): warning C4244: =: преобразование "double" в "int", возможна потеря данных
-C:\Users\atosy\source\repos\KLETIS\KLETIS\main.cpp(729,22): warning C4244: =: преобразование "double" в "int", возможна потеря данных
+C:\Users\atosy\source\repos\KLETIS\KLETIS\main.cpp(590,21): warning C4244: =: преобразование "double" в "int", возможна потеря данных
+C:\Users\atosy\source\repos\KLETIS\KLETIS\main.cpp(663,62): warning C4244: =: преобразование "double" в "int", возможна потеря данных
+C:\Users\atosy\source\repos\KLETIS\KLETIS\main.cpp(664,67): warning C4244: =: преобразование "double" в "int", возможна потеря данных
+C:\Users\atosy\source\repos\KLETIS\KLETIS\main.cpp(665,67): warning C4244: =: преобразование "double" в "int", возможна потеря данных
+C:\Users\atosy\source\repos\KLETIS\KLETIS\main.cpp(695,22): warning C4244: =: преобразование "double" в "int", возможна потеря данных
+C:\Users\atosy\source\repos\KLETIS\KLETIS\main.cpp(730,22): warning C4244: =: преобразование "double" в "int", возможна потеря данных
   KLETIS.vcxproj -> C:\Users\atosy\source\repos\KLETIS\Debug\KLETIS.exe
