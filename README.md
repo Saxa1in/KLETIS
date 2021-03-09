@@ -6,12 +6,12 @@ Signature scanner
 </p>
 <p>
   II. Минимальные системные требования<br>
-&nbsp&nbsp&nbspОперационная система: Microsoft Windows 10 x64;
-&nbsp&nbsp&nbspПроцессор: Процессор с частотой 1 гигагерц (ГГц) или быстрее или система на кристалле SoC;
-&nbsp&nbsp&nbspВидеоадаптер: DirectX 9 или более поздней версии с драйвером WDDM 1.0;  
-&nbsp&nbsp&nbspОЗУ: 2 ГБ;
-&nbsp&nbsp&nbspДисплей: 800x600;
-&nbsp&nbsp&nbspИнтернет-соединение: не требуется;
+&nbsp&nbsp&nbspОперационная система: Microsoft Windows 10 x64;<br>
+&nbsp&nbsp&nbspПроцессор: Процессор с частотой 1 гигагерц (ГГц) или быстрее или система на кристалле SoC;<br>
+&nbsp&nbsp&nbspВидеоадаптер: DirectX 9 или более поздней версии с драйвером WDDM 1.0;<br>
+&nbsp&nbsp&nbspОЗУ: 2 ГБ;<br>
+&nbsp&nbsp&nbspДисплей: 800x600;<br>
+&nbsp&nbsp&nbspИнтернет-соединение: не требуется;<br>
 </p>
 <p>
   III. Установка приложения<br>
