@@ -11,7 +11,7 @@ Signature scanner
 &nbsp&nbsp&nbspВидеоадаптер: DirectX 9 или более поздней версии с драйвером WDDM 1.0;<br>
 &nbsp&nbsp&nbspОЗУ: 2 ГБ;<br>
 &nbsp&nbsp&nbspДисплей: 800x600;<br>
-&nbsp&nbsp&nbspИнтернет-соединение: не требуется;<br>
+&nbsp&nbsp&nbspИнтернет-соединение: не требуется.<br>
 </p>
 <p>
   III. Установка приложения<br>
